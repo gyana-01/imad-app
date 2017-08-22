@@ -150,7 +150,7 @@ app.get('/articles/:articleName',function(req,res) {
            
        {
            var artcleData=result.rows[0];
-           res.send(CreateTemplate(articles[articleData]));)
+           res.send(CreateTemplate(articles[articleData]));
        }
        }
     });
