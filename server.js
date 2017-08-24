@@ -137,6 +137,8 @@ var names=[];
   names.push(name);
   res.send(JSON.stringify(names));
 });
+*/
+
 app.get('/articles/:articleName',function(req,res) {
     pool.query("SELECT * FROM article WHERE tittle='" +req.params.articleName +"'", function(err,result){
        if(err) {
@@ -154,7 +156,8 @@ app.get('/articles/:articleName',function(req,res) {
        }
        }
     });
-*/
+});
+
 var Pool= new Pool(config);
 app.get('/test-db',function(req,res){
    //make a select request
