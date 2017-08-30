@@ -139,7 +139,7 @@ app.get('/submit-name' ,function(req,res){
 });
 
 
-
+/*
 app.get('/articles/:articleName',function(req,res) {
     
     pool.query("SELECT * FROM article WHERE tittle='" +req.params.articleName +"'", function(err,result){
@@ -174,6 +174,7 @@ app.get('/test-db',function(req,res){
    }
    });
 });
+*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
