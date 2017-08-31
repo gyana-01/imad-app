@@ -1,21 +1,27 @@
-//counter code
-var button=document.getElementById('counter');
-
-button.onclick= function(){
-    //ctreate a request obj
-    var request= new XMLHttpRequest();
-    //capture the response and store it in a variable
-    request.onreadystatechange=function(){
-        if( request.readystate===XMLHttpRequest.DONE)
-        {
-            if(request.status===200){
-                var counter=request.responseText;
-                var span=document.getElementById('count');
-                span.innerHTML=counter.toString();
-            }
-        }
-    };
-    //make the request
-    request.open('GET','http://gyanaprakashsahu1997.imad.hasura-app.io/counter',true);
-    request.send(null);
+var submit=document.getElementById('submit_btn');
+submit.onclick=function(){
+  var request= new XMLHttprequest();
+  request.onreadystatechange=function(){
+      if(request.readystate===XMLHttprequest.DONE){
+          if(request.status===200)
+          {
+              alert('logged in sucessfully');
+          }
+          else if(request.status===403)
+          {
+              alert('username/password is incorrect');
+          }
+          else if(request.status===500)
+          {
+              alert('something wen twrong on server');
+          }
+      }
+  };
+  var username=document.getElementById('username');
+   var password=document.getElementById('password');
+   console.log(username);
+   console.log(password);
+   request.open('POST','http://gyanaprakashsahu1997.imad.hasura-app.io/login',true);
+   request.setRequestHeader('Content-Type','application/json');
+   request.send(JSON.stringify({username:username,password:password}));
 };
