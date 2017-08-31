@@ -201,6 +201,11 @@ app.get('/checked-login',function(req,res){
        res.send('you are  not logged in');
    }
 });
+app.get('/logout' ,function(req,res)
+{
+    delete req.session.auth;
+    res.send('you are logged out');
+});
 var counter=0;
 app.get('/counter',function(req,res){
     counter=counter+1;
